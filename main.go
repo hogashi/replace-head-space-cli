@@ -1,7 +1,7 @@
 package main
 
 import (
-  "{pathToYourApp}/cmd"
+	"github.com/hogashi/trim-head-space-cli/cmd"
 )
 
 func main() {
