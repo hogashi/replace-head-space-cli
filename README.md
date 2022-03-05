@@ -1,5 +1,11 @@
 # replace-head-space-cli
 
+## Install
+
+```
+go install github.com/hogashi/replace-head-space-cli@latest
+```
+
 ## Usage
 
 spaces (hard tab, full-width space) on head of lines will be replaced into half-width space
