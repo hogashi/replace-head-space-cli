@@ -12,7 +12,7 @@ ab
 		gh
 	 ij
 	　kl
-$ cat hoge.txt | go run .
+$ cat hoge.txt | replace-head-space-cli
 ab
  cd
  ef
