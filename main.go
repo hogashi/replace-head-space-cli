@@ -1,9 +1,7 @@
 package main
 
-import (
-	"github.com/hogashi/trim-head-space-cli/cmd"
-)
+import "fmt"
 
 func main() {
-  cmd.Execute()
+  fmt.Println("hi")
 }
