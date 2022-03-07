@@ -10,7 +10,7 @@ go install github.com/hogashi/replace-head-space-cli@latest
 
 spaces (hard tab, full-width space) on head of lines will be replaced into half-width space
 
-```
+```console
 $ cat hoge.txt
 0 spaces
  1 half-width space
