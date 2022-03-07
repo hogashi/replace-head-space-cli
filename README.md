@@ -12,15 +12,15 @@ spaces (hard tab, full-width space) on head of lines will be replaced into half-
 
 ```
 $ cat hoge.txt
-0
- 1 # half-width space
-　1 # full-width space
-	1 # hard tab
-	 　3 # mix
+0 spaces
+ 1 half-width space
+　1 full-width space
+	1 hard tab
+	 　3 mixed spaces
 $ cat hoge.txt | replace-head-space-cli
-0
- 1 # half-width space
- 1 # full-width space
- 1 # hard tab
-   3 # mix
+0 spaces
+ 1 half-width space
+ 1 full-width space
+ 1 hard tab
+   3 mixed spaces
 ```
