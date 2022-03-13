@@ -13,6 +13,7 @@ import (
 
 func main() {
 	var opts struct {
+		Target      string `short:"t" long:"target" description:"replace target RegExp"`
 		ReplaceWith string `short:"w" long:"with" description:"replace with this string"`
 	}
 	_, err := flags.Parse(&opts)
@@ -20,7 +21,11 @@ func main() {
 		panic(err)
 	}
 
-	re := regexp.MustCompile(`^[ 　\t]+`)
+	target := `^[ 　\t]+`
+	if opts.Target != "" {
+		target = opts.Target
+	}
+	re := regexp.MustCompile(target)
 
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
