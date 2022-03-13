@@ -15,6 +15,7 @@ var defaultTarget = `^[ 　\t]+`
 var defaultReplaceWith = " "
 
 func main() {
+	// parse options
 	var opts struct {
 		Target      string `short:"t" long:"target" description:"replace target RegExp (default: '^[ 　\t]+')"`
 		ReplaceWith string `short:"w" long:"with" description:"replace with this string (default: ' ')"`
@@ -35,6 +36,7 @@ func main() {
 		replaceWith = opts.ReplaceWith
 	}
 
+	// replace stdin, output to stdout
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		result := re.ReplaceAllStringFunc(scanner.Text(), func(s string) string {
