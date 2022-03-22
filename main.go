@@ -11,13 +11,13 @@ import (
 	"github.com/jessevdk/go-flags"
 )
 
-var defaultTarget = `^[ 　\t]+`
+var defaultTarget = `[ 　\t]+`
 var defaultReplaceWith = " "
 
 func main() {
 	// parse options
 	var opts struct {
-		Target      string `short:"t" long:"target" description:"replace target RegExp (default: '^[ 　\t]+')"`
+		Target      string `short:"t" long:"target" description:"replace target RegExp (default: '[ 　\t]+')"`
 		ReplaceWith string `short:"w" long:"with" description:"replace with this string (default: ' ')"`
 	}
 	_, err := flags.Parse(&opts)
@@ -29,7 +29,7 @@ func main() {
 	if opts.Target != "" {
 		target = opts.Target
 	}
-	re := regexp.MustCompile(target)
+	re := regexp.MustCompile("^" + target)
 
 	replaceWith := defaultReplaceWith
 	if opts.ReplaceWith != "" {
