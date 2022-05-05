@@ -15,7 +15,7 @@ func TestReplaceHead(t *testing.T) {
 		{`[ 　\t]+`, "ABC", " 1 half", "ABC1 half"},
 		{`[ 　\t]+`, "ABC", "　1 full", "ABC1 full"},
 		{`[ 　\t]+`, "ABC", "	1 tab", "ABC1 tab"},
-		{`[ 　\t]+`, "ABC", " 　	1 half 1 full 1 tab (3)", "ABCABCABC1 half 1 full 1 tab (3)!!!!!"},
+		{`[ 　\t]+`, "ABC", " 　	1 half 1 full 1 tab (3)", "ABCABCABC1 half 1 full 1 tab (3)"},
 		{`[a-z]+`, "ABC", "no space", "ABCABC space"},
 		{`[a-z]+`, "ABC", "	1 tab", "	1 tab"},
 	}
