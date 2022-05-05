@@ -29,7 +29,6 @@ func main() {
 	if opts.Target != "" {
 		target = opts.Target
 	}
-	re := regexp.MustCompile("^" + target)
 
 	replaceWith := defaultReplaceWith
 	if opts.ReplaceWith != "" {
@@ -39,13 +38,19 @@ func main() {
 	// replace stdin, output to stdout
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
-		result := re.ReplaceAllStringFunc(scanner.Text(), func(s string) string {
-			spaceCount := utf8.RuneCountInString(s)
-			return strings.Repeat(replaceWith, spaceCount)
-		})
+		inputText := scanner.Text()
+		result := ReplaceHead(inputText, target, replaceWith)
 		fmt.Println(result)
 	}
 	if err := scanner.Err(); err != nil {
 		fmt.Fprintln(os.Stderr, "reading standard input:", err)
 	}
+}
+
+func ReplaceHead(text string, target string, replaceWith string) string {
+	re := regexp.MustCompile("^" + target)
+	return re.ReplaceAllStringFunc(text, func(s string) string {
+		spaceCount := utf8.RuneCountInString(s)
+		return strings.Repeat(replaceWith, spaceCount)
+	})
 }
